@@ -1,6 +1,7 @@
 from rest_framework import serializers
 
 from orders_app.models import Product, Order, Bill
+from orders_app.validators import is_order_executed
 
 
 class ProductSerializer(serializers.ModelSerializer):
@@ -22,6 +23,7 @@ class OrderSerializer(serializers.ModelSerializer):
     class Meta:
         model = Order
         fields = '__all__'
+        read_only_fields = ('status',)
 
 
 class OrderStatusWriteSerializer(serializers.ModelSerializer):
@@ -71,7 +73,7 @@ class ProductForBillSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Product
-        fields = ('name', 'price')
+        fields = ('name', 'price', 'price_with_discount')
         read_only_fields = ('name', 'price', 'price_with_discount')
 
 
@@ -79,6 +81,14 @@ class BillCreateSerializer(serializers.ModelSerializer):
     """
     Serializer class to create Bill model instance.
     """
+
+    def validate(self, data):
+        """
+        Check that the start is before the stop.
+        """
+        if not is_order_executed(data.get('order')):
+            raise serializers.ValidationError("Order in not executed")
+        return data
 
     class Meta:
         model = Bill

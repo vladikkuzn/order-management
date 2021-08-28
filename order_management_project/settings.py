@@ -10,9 +10,12 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
+import os
+
 from pathlib import Path
 from dotenv import load_dotenv
-import os
+from celery.schedules import crontab
+
 
 # Load environment variables
 load_dotenv()
@@ -44,6 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'django_celery_beat',
 
     'orders_app',
     'users_app',
@@ -89,6 +93,10 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+
+# The model to use to represent a User
+AUTH_USER_MODEL = 'users_app.User'
 
 
 # Password validation
@@ -140,6 +148,22 @@ REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 10,
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.IsAuthenticated',
-    ]
+        'rest_framework.authentication.BasicAuthentication',
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+}
+
+
+# Celery configurations
+# To start worker `celery -A order_management_project worker -l info`
+# To start beat `celery -A order_management_project beat -l info`
+CELERY_BROKER_URL = 'redis://localhost:6379/0'
+CELERY_RESULT_BACKEND = 'redis://localhost:6379/1'
+CELERY_BEAT_SCHEDULE = {
+    "set_discounts": {
+        "task": "orders_app.tasks.set_discounts",
+        "schedule": crontab(hour='*/24'),
+    },
 }

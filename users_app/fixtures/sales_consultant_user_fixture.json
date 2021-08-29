@@ -1,0 +1,21 @@
+[
+  {
+    "model": "users_app.user",
+    "pk": 2,
+    "fields": {
+      "password": "pbkdf2_sha256$260000$i04R1Tk7IvQdHKmSDU6bzB$kPSFWmWO23MXvqyvdeZ7QMouo9H1aBtl6PW3Z7ZnAgw=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "sales_consultant",
+      "first_name": "sales",
+      "last_name": "consultant",
+      "email": "sales_consultant@e.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2021-08-28T19:57:07.267Z",
+      "role": 1,
+      "groups": [],
+      "user_permissions": []
+    }
+  }
+]

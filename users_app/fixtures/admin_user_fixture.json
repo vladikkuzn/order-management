@@ -1,0 +1,21 @@
+[
+  {
+    "model": "users_app.user",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$260000$23S6MhqhyP3ScMLoB92OxB$TRtW2xBWEmNoZTLdkm+8wmHetzBUD98K0glZBi6Znh0=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "admin",
+      "first_name": "admin",
+      "last_name": "adminovich",
+      "email": "admin@e.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2021-08-28T19:55:38.707Z",
+      "role": null,
+      "groups": [],
+      "user_permissions": []
+    }
+  }
+]

@@ -1,0 +1,67 @@
+[
+  {
+    "model": "orders_app.order",
+    "pk": 1,
+    "fields": {
+      "status": 2,
+      "created_at": "2020-08-28T20:05:20.914Z",
+      "product": 1
+    }
+  },
+  {
+    "model": "orders_app.order",
+    "pk": 2,
+    "fields": {
+      "status": 3,
+      "created_at": "2021-08-28T20:07:04.989Z",
+      "product": 2
+    }
+  },
+  {
+    "model": "orders_app.order",
+    "pk": 3,
+    "fields": {
+      "status": 1,
+      "created_at": "2022-08-28T20:07:08.263Z",
+      "product": 3
+    }
+  },
+  {
+    "model": "orders_app.product",
+    "pk": 1,
+    "fields": {
+      "name": "First product",
+      "price": "10.00",
+      "created_at": "2021-08-28T20:03:40.709Z",
+      "discount": "0.00"
+    }
+  },
+  {
+    "model": "orders_app.product",
+    "pk": 2,
+    "fields": {
+      "name": "Second product",
+      "price": "99.99",
+      "created_at": "2021-08-28T20:04:12.759Z",
+      "discount": "0.00"
+    }
+  },
+  {
+    "model": "orders_app.product",
+    "pk": 3,
+    "fields": {
+      "name": "Third product",
+      "price": "5.00",
+      "created_at": "2021-08-28T20:04:24.801Z",
+      "discount": "0.00"
+    }
+  },
+  {
+    "model": "orders_app.bill",
+    "pk": 1,
+    "fields": {
+      "order": 1,
+      "created_at": "2021-08-28T20:42:20.582Z"
+    }
+  }
+]

@@ -1,0 +1,21 @@
+[
+  {
+    "model": "users_app.user",
+    "pk": 3,
+    "fields": {
+      "password": "pbkdf2_sha256$260000$fQ1JDwBQPmqQUNXiJJ7cSO$6OOWuxMu+JeAi+ctBH5fI2bEFfQt9B9FhemrR9OkzwQ=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "cashier",
+      "first_name": "cashier",
+      "last_name": "cashier",
+      "email": "cashier@e.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2021-08-28T19:57:25.505Z",
+      "role": 2,
+      "groups": [],
+      "user_permissions": []
+    }
+  }
+]

@@ -161,8 +161,6 @@ REST_FRAMEWORK = {
 
 
 # Celery configurations
-# To start worker `celery -A order_management_project worker -l info`
-# To start beat `celery -A order_management_project beat -l info`
 CELERY_BROKER_URL = 'redis://localhost:6379/0'
 CELERY_RESULT_BACKEND = 'redis://localhost:6379/1'
 CELERY_BEAT_SCHEDULE = {
